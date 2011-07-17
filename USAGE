@@ -1,0 +1,23 @@
+Использование:
+    setochka
+    setochka -h
+    setochka --help
+        показывает этот текст
+    setochka -v
+    setochka --version
+        показывает версию "Сеточки"
+    setochka -i <CSS_file_name>
+    setochka --input <CSS_filename>
+        TODO
+    setochka -a "alias0, alias1, aliasN"
+    setochka --aliases "alias0, alias1, aliasN"
+        TODO
+    setochka -mc <config_filename>
+    setochka --merge-config <config_filename>
+        TODO
+    setochka -rc <config_filename>
+    setochka --replace-config <config_filename>
+        TODO
+    setochka -l
+    setochka --list
+        TODO

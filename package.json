@@ -11,8 +11,7 @@
     "directories" : { "lib" : "./lib" },
     "main" : "./lib/setochka",
     "dependencies" : {
-        "yanlibs" : ">=0.1.0",
-        "cssp" : ">= 0.0.5"
+        "cssp" : ">= 0.0.7"
     },
     "bin" : "./bin/setochka",
     "engines" : { "node" : ">=0.4.0" },
