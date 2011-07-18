@@ -173,11 +173,13 @@
         outFile: function(filename) { return 'my.' + filename },
         aliases: {
             'moz': {
-                outFile: function(filename) { return 'moz.' + filename },
                 tokens: {
                     'property': [/^\-moz\-color/],
                     'value': [/^\mozilla\-/]
                 }
+            },
+            'test': {
+                mark: 'test'
             }
         }
     }
@@ -195,6 +197,9 @@
                     'property': [/^\-moz\-color/],
                     'value': [/^\mozilla\-/]
                 }
+            },
+            'test': {
+                mark: 'test'
             }
         }
     }
