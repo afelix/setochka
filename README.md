@@ -45,6 +45,8 @@
 
 ## Настройки
 
+Файл настроек представляет собою JavaScript-файл.
+
 ### Структура файла настроек
 
     exports.config = {
@@ -55,9 +57,9 @@
                 description: 'краткое описание',           <- краткое описание синонима
                 outFile: function(filename) { return .. }, <- имя файла для записи выделенных свойств
                 tokens: {                                  <- токены для сверки с шаблоном
-                    'declaration': [/^\-setochka\-/, ..]   <- CSS-свойство в целом
-                    'property': [/^\-setochka\-/, ..]      <- имя CSS-свойства
-                    'value': [/^\-setochka\-/, ..]         <- значение CSS-свойства
+                    'declaration': [/.. regexp ../, ..]    <- CSS-свойство в целом
+                    'property': [/.. regexp ../, ..]       <- имя CSS-свойства
+                    'value': [/.. regexp ../, ..]          <- значение CSS-свойства
                 }
             },
             'синоним1': {
@@ -68,13 +70,42 @@
             }
         }
     }
+### Пример
+
+    exports.config = {
+        outFile: function(filename) { return 'base.' + filename },
+        aliases: {
+            'moz': {
+                mark: 'moz',
+                description: 'Gecko (Mozilla): -moz-',
+                outFile: function(filename) { return 'moz.' + filename },
+                tokens: {
+                    'property': [/^\-moz\-/]
+                }
+            }
+        }
+    }
 
 ## Сценарии использования
 
-### Выделение свойств
+### Выделение свойств по шаблону
+
+В настройках должны быть заполнены следующие параметры:
+
+* config.outFile
+* config.aliases.alias.outFile
+* config.aliases.alias.tokens
+
+Запуск: `setochka -i my.css`
 
 ### Удаление свойств
 
+`setochka -i my.css`
+
 ### Дополнение настроек
 
+`setochka -i my.css -mc /foo/bar/myconfig.js`
+
 ### Замещение настроек
+
+`setochka -i my.css -rc /foo/bar/myconfig.js`
