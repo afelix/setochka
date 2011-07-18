@@ -6,18 +6,18 @@
     setochka -v
     setochka --version
         показывает версию "Сеточки"
-    setochka -i <CSS_file_name>
+    setochka -i <CSS_filename>
     setochka --input <CSS_filename>
-        TODO
+        принимает <CSS_filename> на вход
     setochka -a "alias0, alias1, aliasN"
     setochka --aliases "alias0, alias1, aliasN"
-        TODO
+        перечисляет синонимы для использования
     setochka -mc <config_filename>
     setochka --merge-config <config_filename>
-        TODO
+        совмещает настройки по умолчанию с настройками из <config_filename>
     setochka -rc <config_filename>
     setochka --replace-config <config_filename>
-        TODO
+        замещает настройки по умолчанию настройками из <config_filename>
     setochka -l
     setochka --list
-        TODO
+        показывает настройки
