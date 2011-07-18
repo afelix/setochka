@@ -78,6 +78,8 @@
 
 ### aliases
 
+Синоним (alias)&nbsp;— имя группы, в которую включаются шаблоны, метка, описание, настройки исходящего файла и всё прочее, что имеет смысл вносить в группу. Группа, в свою очередь, нужна для того, чтобы пользователь мог уникально идентифицировать наборы шаблонов и применять их посредством вызова. В общем, очевидная концепция.
+
 ### alias.mark
 
 Маркер, которым в CSS помечаются свойства для безусловной фильтрации: свойство будет перемещено вне зависимости от того, попадает оно под шаблоны или нет. В CSS маркер должен быть заключён в комментарий и находиться до свойства, при этом между маркером и свойством не должно быть пробелов и чего-либо ещё:
@@ -118,21 +120,84 @@
 
 ## Сценарии использования
 
+Основным сценарием использования видится выделение вендорных свойств по шаблонам&nbsp;— то, ради чего создана Сеточка, и под эту задачу созданы настройки по умолчанию, которые можно посмотреть [здесь](http://nodejs.org).
+
+Если пользователь нуждается в переопределении или дополнении настроек (вероятно, изменение имени исходящих файлов или дополнение настроек), следует использовать сценарии "Дополнение настроек" и "Замещение настроек".
+
 ### Выделение свойств по шаблону
 
 В настройках должны быть заполнены следующие параметры:
 
 * config.outFile
 * config.aliases.alias.outFile
-* config.aliases.alias.tokens
+* config.aliases.alias.tokens и / или config.aliases.alias.mark
 
 Запуск: `setochka -i my.css`
 
 ### Удаление свойств
 
+В настройках должны быть заполнены следующие параметры:
+
+* config.outFile
+* config.aliases.alias.tokens и / или config.aliases.alias.mark
+
+Этот параметр должен быть пустым (или иметь значение, равное `false`):
+
+* config.aliases.alias.outFile
+
 Запуск: `setochka -i my.css`
 
 ### Дополнение настроек
+
+При дополнении настроек пользовательские настройки замещают собою пересекающуюся часть настроек по умолчанию, а также дополняют то, чего в настройках не было. NB: массивы шаблонов не дополняются, но замещаются целиком!
+
+Пример настроек по умолчанию (фактические отличаются):
+
+    exports.config = {
+        outFile: function(filename) { return 'base.' + filename },
+        aliases: {
+            'moz': {
+                mark: 'moz',
+                description: 'Gecko (Mozilla): -moz-',
+                outFile: function(filename) { return 'moz.' + filename },
+                tokens: {
+                    'property': [/^\-moz\-/]
+                }
+            }
+        }
+    }
+
+Пример пользовательских настроек (`/foo/bar/myconfig.js`):
+
+    exports.config = {
+        outFile: function(filename) { return 'my.' + filename },
+        aliases: {
+            'moz': {
+                outFile: function(filename) { return 'moz.' + filename },
+                tokens: {
+                    'property': [/^\-moz\-color/],
+                    'value': [/^\mozilla\-/]
+                }
+            }
+        }
+    }
+
+Итог:
+
+    exports.config = {
+        outFile: function(filename) { return 'my.' + filename },
+        aliases: {
+            'moz': {
+                mark: 'moz',
+                description: 'Gecko (Mozilla): -moz-',
+                outFile: function(filename) { return 'moz.' + filename },
+                tokens: {
+                    'property': [/^\-moz\-color/],
+                    'value': [/^\mozilla\-/]
+                }
+            }
+        }
+    }
 
 Запуск: `setochka -i my.css -mc /foo/bar/myconfig.js`
 
