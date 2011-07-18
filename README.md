@@ -11,12 +11,15 @@
 ## Установка
 
 Для установки следует выполнить команду `npm install setochka`.
+
 Для обновления следует выполнить команду `npm update setochka`.
+
 Для удаления следует выполнить команду `npm uninstall setochka`.
 
 ## Использование
 
 Кратко (копия файла USAGE):
+
     setochka
     setochka -h
     setochka --help
