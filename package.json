@@ -1,7 +1,7 @@
 {
     "name" : "setochka",
     "description" : "Setochka — divide et impera",
-    "version" : "0.0.1",
+    "version" : "0.0.2",
     "homepage": "http://github.com/afelix/setochka",
     "author" : "Sergey Kryzhanovsky <skryzhanovsky@ya.ru> (http://github.com/afelix)",
     "repository" : {
