@@ -31,7 +31,9 @@
     setochka --input <CSS_filename>
         принимает <CSS_filename> на вход
     setochka -a "alias0,alias1,aliasN"
+    setochka -a alias0 -a "alias1,aliasN"
     setochka --aliases "alias0,alias1,aliasN"
+    setochka --aliases alias0 --aliases "alias1,aliasN"
         перечисляет синонимы для использования
     setochka -mc <config_filename>
     setochka --merge-config <config_filename>
