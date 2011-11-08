@@ -1,7 +1,7 @@
 {
     "name" : "setochka",
     "description" : "Setochka — divide et impera",
-    "version" : "0.0.4",
+    "version" : "0.0.5",
     "homepage": "http://github.com/afelix/setochka",
     "author" : "Sergey Kryzhanovsky <skryzhanovsky@ya.ru> (http://github.com/afelix)",
     "repository" : {
@@ -11,7 +11,7 @@
     "directories" : { "lib" : "./lib" },
     "main" : "./lib/setochka",
     "dependencies" : {
-        "cssp" : ">= 0.0.10"
+        "cssp" : ">= 1.0.2"
     },
     "bin" : "./bin/setochka",
     "engines" : { "node" : ">=0.4.0" },
