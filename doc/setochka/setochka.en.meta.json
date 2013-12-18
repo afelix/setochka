@@ -1,0 +1,13 @@
+{
+    "title": "setochka",
+    "createDate": "16-07-2011",
+    "editDate": "21-07-2011",
+    "summary": "setochka is a tool for splitting CSS-properties of the original CSS file into separate files. Also it can be used for the properties removing.",
+    "thumbnail": "",
+    "authors": ["kryzhanovsky-sergey"],
+    "tags": ["tools", "css"],
+    "categories": [{"name": "Optimizers/setochka", "url": "optimizers/setochka", "order": "20/40"}],
+    "translators": [],
+    "url": "/doc/setochka/",
+    "type": "tools"
+}
